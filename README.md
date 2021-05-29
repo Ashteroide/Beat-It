@@ -22,7 +22,7 @@ A simple rhythm game inspired by FNF and guitar hero
 * Sound bars jump depending on the sound level (Audio Visualiser)
 
 
-## Notes (Links, Images and Videos)
+## 5. Notes (Links, Images and Videos)
 |Date Accessed |Info  | Link|
 --- | --- | ---
 |29th May, 2021|MPV-scripts (Audio Visualiser)|https://github.com/mfcc64/mpv-scripts|
