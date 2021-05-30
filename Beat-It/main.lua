@@ -1,82 +1,61 @@
 -- Beat It! By Ashteroide
 -- Created: 29 May, 2021
 
-local currentState = "Menu";
+require "menu";
+require "options";
+require "game";
 
-local cursorIndex = 1;
+currentState = "Menu";
 
-local function runStateMenu()
-end
-
-local function runStateGame()
-end
-
-local function runStateOptions()
-end
+local maxStates = 3; -- Must be changed when new states are added
 
 local states =
 {
-    Menu = runStateMenu,
-    Options = runStateOptions,
-	Game = runStateGame
+    "Menu",
+    "Options",
+    "Game",
+
+    menu,
+    options,
+    game
 }
-
-local function main()
-	while true do
-		local stateFunction = states[currentState];
-
-		if stateFunction ~= nil then
-			stateFunction();
-		end
-	end
-end
 
 function love.load()
     love.window.setMode(1280, 720, { resizable = true, minwidth = 720, minheight = 360 });
+
+    for index = 1, maxStates, 1 do
+        states[index + maxStates].init();
+    end
 end
 
-local menuOptions =
-{
-    "Game!",
-    "Options!"
-}
+function love.update()
+    for index = 1, maxStates, 1 do
+        if currentState == states[index] then
+            states[index + maxStates].update();
+        end
+    end
+end
 
 function love.draw()
-    if currentState == "Menu" then
-        for index = 1, 2, 1 do
-            love.graphics.print(menuOptions[index], 10, 10 * index);
+    for index = 1, maxStates, 1 do
+        if currentState == states[index] then
+            states[index + maxStates].draw();
         end
-
-        love.graphics.print("> ", 0, cursorIndex * 10);
-    end
-
-    if currentState == "Game" then
-        love.graphics.print("Game Mode!", 5, 10);
-    end
-
-    if currentState == "Options" then
-        love.graphics.print("Options Mode!", 5, 10);
     end
 end
 
 function love.keypressed(key)
-    if key == "return" and currentState == "Menu" then
-        if cursorIndex == 1 then
-            currentState = "Game";
-        elseif cursorIndex == 2 then
-            currentState = "Options";
+    for index = 1, maxStates, 1 do
+        if currentState == states[index] then
+            states[index + maxStates].keyPressed(key);
         end
-    elseif key == "escape" then
-        if currentState == "Menu" then
-            love.event.quit();
-        elseif currentState == "Options" then
-            currentState = "Menu";
-        elseif currentState == "Game" then
-            currentState = "Menu";
+    end
+end
+
+function love.keyreleased(key)
+    for index = 1, maxStates, 1 do
+        if currentState == states[index] then
+            states[index + maxStates].keyReleased(key);
         end
-    elseif key == "down" and cursorIndex == 1 then
-        cursorIndex = cursorIndex + 1;
-    elseif key == "up" and cursorIndex == 2 then
-        cursorIndex = cursorIndex - 1;
     end
 end
