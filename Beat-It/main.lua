@@ -28,22 +28,6 @@ function love.load()
     end
 end
 
-function love.update()
-    for index = 1, maxStates, 1 do
-        if currentState == states[index] then
-            states[index + maxStates].update();
-        end
-    end
-end
-
-function love.draw()
-    for index = 1, maxStates, 1 do
-        if currentState == states[index] then
-            states[index + maxStates].draw();
-        end
-    end
-end
-
 function love.keypressed(key)
     for index = 1, maxStates, 1 do
         if currentState == states[index] then
@@ -56,6 +40,25 @@ function love.keyreleased(key)
     for index = 1, maxStates, 1 do
         if currentState == states[index] then
             states[index + maxStates].keyReleased(key);
+        end
+    end
+end
+
+function love.update()
+    for index = 1, maxStates, 1 do
+        if currentState == states[index] then
+            states[index + maxStates].update();
+        end
+    end
+
+    windowWidth = love.graphics.getWidth();
+    windowHeight = love.graphics.getHeight();
+end
+
+function love.draw()
+    for index = 1, maxStates, 1 do
+        if currentState == states[index] then
+            states[index + maxStates].draw();
         end
     end
 end

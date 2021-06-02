@@ -1,6 +1,7 @@
 options =
 {
     init = function()
+        cursorIndex = 1;
     end,
 
     update = function()
