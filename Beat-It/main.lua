@@ -18,7 +18,7 @@ function love.load()
     love.window.setMode(1280, 720, { resizable = true, minwidth = 720, minheight = 360 });
 
     for key, value in pairs(states) do
-        value.init();
+        value.load();
     end
 end
 

@@ -1,6 +1,6 @@
 menu =
 {
-    init = function()
+    load = function()
         cursorIndex = 1;
         maxSongs = 3;
 
@@ -45,11 +45,11 @@ menu =
         if key == "return" then
             if cursorIndex == 1 then
                 currentState = "Game";
-                game.init();
+                game.load();
                 
             elseif cursorIndex == (maxSongs + 1) then
                 currentState = "Options";
-                options.init();
+                options.load();
             end
         elseif key == "escape" then
             love.event.quit();

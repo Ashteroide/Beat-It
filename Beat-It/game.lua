@@ -1,6 +1,6 @@
 game =
 {
-    init = function()
+    load = function()
         -- Key Pattern: Left, Down, Up, Right
         keys = { A, S, W, D, LEFT, DOWN, UP, RIGHT };
         printKeys = { "a", "s", "w", "d", "left", "down", "up", "right" };

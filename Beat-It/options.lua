@@ -1,6 +1,6 @@
 options =
 {
-    init = function()
+    load = function()
         cursorIndex = 1;
     end,
 
