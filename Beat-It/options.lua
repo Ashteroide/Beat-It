@@ -1,23 +1,23 @@
 options =
 {
-    load = function()
+    load = function(self)
         cursorIndex = 1;
     end,
 
-    update = function()
+    update = function(self)
     end,
     
-    draw = function()
+    draw = function(self)
         love.graphics.print("Options Mode!");
         love.graphics.print("CursorIndex = " .. cursorIndex, 0, 10);
     end,
 
-    keyPressed = function(key)
+    keyPressed = function(self, key)
         if key == "escape" then
             currentState = "Menu";
         end
     end,
 
-    keyReleased = function(key)
+    keyReleased = function(self, key)
     end
 }

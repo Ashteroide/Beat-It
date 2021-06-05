@@ -1,13 +1,13 @@
 game =
 {
-    load = function()
+    load = function(self)
         -- Key Pattern: Left, Down, Up, Right
         keys = { A, S, W, D, LEFT, DOWN, UP, RIGHT };
         printKeys = { "a", "s", "w", "d", "left", "down", "up", "right" };
         maxKeys = 8;
     end,
 
-    update = function()
+    update = function(self)
         hitBoxWidth = windowWidth / 8;
         hitBoxHeight = 10;
         hitBoxClearance = 5;
@@ -15,7 +15,7 @@ game =
         Xposition = (windowWidth / 4) - (hitBoxClearance * 2.5);
     end,
 
-    draw = function()
+    draw = function(self)
         love.graphics.print("Game Mode!");
 
         for index = 1, maxKeys, 1 do
@@ -46,7 +46,7 @@ game =
         love.graphics.setColor(1, 1, 1);
     end,
 
-    keyPressed = function(key)
+    keyPressed = function(self, key)
         if key == "escape" then
             currentState = "Menu";
         end
@@ -58,7 +58,7 @@ game =
         end
     end,
 
-    keyReleased = function(key)
+    keyReleased = function(self, key)
         for index = 1, maxKeys, 1 do
             if key == printKeys[index] then
                 keys[index] = false;
