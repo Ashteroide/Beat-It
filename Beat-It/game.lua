@@ -37,12 +37,12 @@ game =
         self.keybinds =
         {
             ["a"] = block1Handler,
-            ["w"] = block2Handler,
-            ["s"] = block3Handler,
+            ["s"] = block2Handler,
+            ["w"] = block3Handler,
             ["d"] = block4Handler,
             ["left"] = block1Handler,
-            ["up"] = block2Handler,
-            ["down"] = block3Handler,
+            ["down"] = block2Handler,
+            ["up"] = block3Handler,
             ["right"] = block4Handler,
             ["escape"] = escapeHandler,
         };
