@@ -60,8 +60,6 @@ game =
     end,
 
     draw = function(self)
-        love.graphics.print("Game Mode!");
-
         local windowWidth = love.graphics.getWidth();
         local windowHeight = love.graphics.getHeight();
 
