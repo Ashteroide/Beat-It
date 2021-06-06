@@ -7,58 +7,33 @@ require "game";
 
 currentState = "Menu";
 
-local maxStates = 3; -- Must be changed when new states are added
-
 local states =
 {
-    "Menu",
-    "Options",
-    "Game",
-
-    menu,
-    options,
-    game
+    ["Menu"] = menu,
+    ["Options"] = options,
+    ["Game"] = game
 }
 
 function love.load()
     love.window.setMode(1280, 720, { resizable = true, minwidth = 720, minheight = 360 });
 
-    for index = 1, maxStates, 1 do
-        states[index + maxStates].init();
+    for key, value in pairs(states) do
+        value:load();
     end
 end
 
 function love.keypressed(key)
-    for index = 1, maxStates, 1 do
-        if currentState == states[index] then
-            states[index + maxStates].keyPressed(key);
-        end
-    end
+    states[currentState]:keyPressed(key);
 end
 
 function love.keyreleased(key)
-    for index = 1, maxStates, 1 do
-        if currentState == states[index] then
-            states[index + maxStates].keyReleased(key);
-        end
-    end
+    states[currentState]:keyReleased(key);
 end
 
 function love.update()
-    for index = 1, maxStates, 1 do
-        if currentState == states[index] then
-            states[index + maxStates].update();
-        end
-    end
-
-    windowWidth = love.graphics.getWidth();
-    windowHeight = love.graphics.getHeight();
+    states[currentState]:update();
 end
 
 function love.draw()
-    for index = 1, maxStates, 1 do
-        if currentState == states[index] then
-            states[index + maxStates].draw();
-        end
-    end
+    states[currentState]:draw();
 end
