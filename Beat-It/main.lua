@@ -32,9 +32,6 @@ end
 
 function love.update()
     states[currentState]:update();
-
-    windowWidth = love.graphics.getWidth();
-    windowHeight = love.graphics.getHeight();
 end
 
 function love.draw()

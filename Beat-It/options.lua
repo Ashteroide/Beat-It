@@ -1,7 +1,7 @@
 options =
 {
     load = function(self)
-        cursorIndex = 1;
+        self.cursorIndex = 1;
     end,
 
     update = function(self)
@@ -9,7 +9,7 @@ options =
     
     draw = function(self)
         love.graphics.print("Options Mode!");
-        love.graphics.print("CursorIndex = " .. cursorIndex, 0, 10);
+        love.graphics.print("CursorIndex = " .. self.cursorIndex, 0, 10);
     end,
 
     keyPressed = function(self, key)

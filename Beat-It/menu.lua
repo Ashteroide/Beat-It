@@ -1,12 +1,11 @@
 menu =
 {
     load = function(self)
-        cursorIndex = 1;
-        maxSongs = 3;
+        self.cursorIndex = 1;
 
-        songSelection = 1;
+        self.songSelection = 1;
 
-        menuOptions =
+        self.menuOptions =
         {
             "Song 1 - Test",
             "Song 2 - Hello",
@@ -20,36 +19,36 @@ menu =
     end,
     
     draw = function(self)
-        for index = 1, (maxSongs + 1), 1 do
-            love.graphics.print("> ", 0, (cursorIndex * 12) - 12);
-            love.graphics.print(menuOptions[index], 12, index * 12 - 12);
+        for index = 1, #self.menuOptions do
+            love.graphics.print("> ", 0, (self.cursorIndex * 12) - 12);
+            love.graphics.print(self.menuOptions[index], 12, index * 12 - 12);
         end
     end,
 
     keyPressed = function(self, key)
-        if key == "down" and cursorIndex < (maxSongs + 1) then
-            if cursorIndex < maxSongs then
-                songSelection = songSelection - 1;
+        if key == "down" and self.cursorIndex < #self.menuOptions then
+            if self.cursorIndex < (#self.menuOptions - 1) then
+                self.songSelection = self.songSelection - 1;
             end
 
-            cursorIndex = cursorIndex + 1;
+            self.cursorIndex = self.cursorIndex + 1;
 
-        elseif key == "up" and cursorIndex > 1 then
-            if cursorIndex > 1 then
-                songSelection = songSelection + 1;
+        elseif key == "up" and self.cursorIndex > 1 then
+            if self.cursorIndex > 1 then
+                self.songSelection = self.songSelection + 1;
             end
 
-            cursorIndex = cursorIndex - 1;
+            self.cursorIndex = self.cursorIndex - 1;
         end
 
         if key == "return" then
-            if cursorIndex == 1 then
+            if self.cursorIndex == 1 then
                 currentState = "Game";
-                game.load();
+                game:load();
                 
-            elseif cursorIndex == (maxSongs + 1) then
+            elseif self.cursorIndex == #self.menuOptions then
                 currentState = "Options";
-                options.load();
+                options:load();
             end
         elseif key == "escape" then
             love.event.quit();
