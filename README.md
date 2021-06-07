@@ -1,11 +1,11 @@
 # Beat It!
-A simple rhythm game inspired by FNF and guitar hero
+A simple rhythm game inspired by Friday Night Funkin', Guitar Hero and Osu!
 
 
 # The Plan!
 
 ## 1. Information
-* Basic rhythm game inspired by FNF and guitar hero
+* Basic rhythm game inspired by Friday Night Funkin', Guitar Hero and Osu!
 * 2D Plane based
 * Makes use of Lua and LOVE
 ## 2. Functions
