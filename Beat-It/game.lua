@@ -7,30 +7,54 @@ game =
         -- Key handlers for activating and deactivating blocks
         local block1Handler =
         {
-            press = function(self) self.blocks[1] = true; end,
-            release = function(self) self.blocks[1] = false; end,
+            press = function(self)
+                self.blocks[1] = true;
+            end,
+
+            release = function(self)
+                self.blocks[1] = false;
+            end,
         };
         local block2Handler =
         {
-            press = function(self) self.blocks[2] = true; end,
-            release = function(self) self.blocks[2] = false; end,
+            press = function(self)
+                self.blocks[2] = true;
+            end,
+
+            release = function(self)
+                self.blocks[2] = false;
+            end,
         };
         local block3Handler =
         {
-            press = function(self) self.blocks[3] = true; end,
-            release = function(self) self.blocks[3] = false; end,
+            press = function(self)
+                self.blocks[3] = true;
+            end,
+
+            release = function(self)
+                self.blocks[3] = false;
+            end,
         };
         local block4Handler =
         {
-            press = function(self) self.blocks[4] = true; end,
-            release = function(self) self.blocks[4] = false; end,
+            press = function(self)
+                self.blocks[4] = true;
+            end,
+
+            release = function(self)
+                self.blocks[4] = false;
+            end,
         };
 
         -- Function handler for leaving the state
         local escapeHandler =
         {
-            press = function(self) currentState = "Menu"; end,
-            release = function(self) end,
+            press = function(self)
+                currentState = "Menu";
+            end,
+
+            release = function(self)
+            end,
         };
 
         -- Keybind table
