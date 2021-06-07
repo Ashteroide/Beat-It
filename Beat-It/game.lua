@@ -4,45 +4,85 @@ game =
         -- Represent whether blocks have been enabled
         self.blocks = { false, false, false, false };
 
+        self.oscillator =
+        {
+            note1 = love.audio.newSource("sounds/C.ogg", "static"),
+            note2 = love.audio.newSource("sounds/D.ogg", "static"),
+            note3 = love.audio.newSource("sounds/E.ogg", "static"),
+            note4 = love.audio.newSource("sounds/F.ogg", "static")
+        };
+
         -- Key handlers for activating and deactivating blocks
         local block1Handler =
         {
             press = function(self)
                 self.blocks[1] = true;
+                
+                if currentState == "Game" then
+                    love.audio.play(self.oscillator.note1);
+                end
             end,
 
             release = function(self)
                 self.blocks[1] = false;
+                
+                if currentState == "Game" then
+                    love.audio.stop(self.oscillator.note1);
+                end
             end,
         };
         local block2Handler =
         {
             press = function(self)
                 self.blocks[2] = true;
+                
+                if currentState == "Game" then
+                    love.audio.play(self.oscillator.note2);
+                end
             end,
 
             release = function(self)
                 self.blocks[2] = false;
+                
+                if currentState == "Game" then
+                    love.audio.stop(self.oscillator.note2);
+                end
             end,
         };
         local block3Handler =
         {
             press = function(self)
                 self.blocks[3] = true;
+                
+                if currentState == "Game" then
+                    love.audio.play(self.oscillator.note3);
+                end
             end,
 
             release = function(self)
                 self.blocks[3] = false;
+
+                if currentState == "Game" then
+                    love.audio.stop(self.oscillator.note3);
+                end
             end,
         };
         local block4Handler =
         {
             press = function(self)
                 self.blocks[4] = true;
+                
+                if currentState == "Game" then
+                    love.audio.play(self.oscillator.note4);
+                end
             end,
 
             release = function(self)
                 self.blocks[4] = false;
+
+                if currentState == "Game" then
+                    love.audio.stop(self.oscillator.note4);
+                end
             end,
         };
 
