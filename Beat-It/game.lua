@@ -4,7 +4,7 @@ game =
         -- Represent whether blocks have been enabled
         self.blocks = { false, false, false, false };
 
-        self.oscillator =
+        self.blockNotes =
         {
             love.audio.newSource("sounds/C.ogg", "static"),
             love.audio.newSource("sounds/D.ogg", "static"),
@@ -18,13 +18,13 @@ game =
             press = function(self)
                 self.blocks[1] = true;
                 
-                love.audio.play(self.oscillator[1]);
+                love.audio.play(self.blockNotes[1]);
             end,
 
             release = function(self)
                 self.blocks[1] = false;
                 
-                love.audio.stop(self.oscillator[1]);
+                love.audio.stop(self.blockNotes[1]);
             end,
         };
         local block2Handler =
@@ -32,13 +32,13 @@ game =
             press = function(self)
                 self.blocks[2] = true;
                 
-                love.audio.play(self.oscillator[2]);
+                love.audio.play(self.blockNotes[2]);
             end,
 
             release = function(self)
                 self.blocks[2] = false;
                 
-                love.audio.stop(self.oscillator[2]);
+                love.audio.stop(self.blockNotes[2]);
             end,
         };
         local block3Handler =
@@ -46,13 +46,13 @@ game =
             press = function(self)
                 self.blocks[3] = true;
                 
-                love.audio.play(self.oscillator[3]);
+                love.audio.play(self.blockNotes[3]);
             end,
 
             release = function(self)
                 self.blocks[3] = false;
 
-                love.audio.stop(self.oscillator[3]);
+                love.audio.stop(self.blockNotes[3]);
             end,
         };
         local block4Handler =
@@ -60,13 +60,13 @@ game =
             press = function(self)
                 self.blocks[4] = true;
                 
-                love.audio.play(self.oscillator[4]);
+                love.audio.play(self.blockNotes[4]);
             end,
 
             release = function(self)
                 self.blocks[4] = false;
                 
-                love.audio.stop(self.oscillator[4]);
+                love.audio.stop(self.blockNotes[4]);
             end,
         };
 
