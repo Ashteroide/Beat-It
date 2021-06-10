@@ -18,17 +18,13 @@ game =
             press = function(self)
                 self.blocks[1] = true;
                 
-                if currentState == "Game" then
-                    love.audio.play(self.oscillator.note1);
-                end
+                love.audio.play(self.oscillator.note1);
             end,
 
             release = function(self)
                 self.blocks[1] = false;
                 
-                if currentState == "Game" then
-                    love.audio.stop(self.oscillator.note1);
-                end
+                love.audio.stop(self.oscillator.note1);
             end,
         };
         local block2Handler =
@@ -36,17 +32,13 @@ game =
             press = function(self)
                 self.blocks[2] = true;
                 
-                if currentState == "Game" then
-                    love.audio.play(self.oscillator.note2);
-                end
+                love.audio.play(self.oscillator.note2);
             end,
 
             release = function(self)
                 self.blocks[2] = false;
                 
-                if currentState == "Game" then
-                    love.audio.stop(self.oscillator.note2);
-                end
+                love.audio.stop(self.oscillator.note2);
             end,
         };
         local block3Handler =
@@ -54,17 +46,13 @@ game =
             press = function(self)
                 self.blocks[3] = true;
                 
-                if currentState == "Game" then
-                    love.audio.play(self.oscillator.note3);
-                end
+                love.audio.play(self.oscillator.note3);
             end,
 
             release = function(self)
                 self.blocks[3] = false;
 
-                if currentState == "Game" then
-                    love.audio.stop(self.oscillator.note3);
-                end
+                love.audio.stop(self.oscillator.note3);
             end,
         };
         local block4Handler =
@@ -72,17 +60,13 @@ game =
             press = function(self)
                 self.blocks[4] = true;
                 
-                if currentState == "Game" then
-                    love.audio.play(self.oscillator.note4);
-                end
+                love.audio.play(self.oscillator.note4);
             end,
 
             release = function(self)
                 self.blocks[4] = false;
-
-                if currentState == "Game" then
-                    love.audio.stop(self.oscillator.note4);
-                end
+                
+                love.audio.stop(self.oscillator.note4);
             end,
         };
 
