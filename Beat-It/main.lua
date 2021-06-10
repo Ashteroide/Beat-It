@@ -15,8 +15,6 @@ local states =
 }
 
 function love.load()
-    love.window.setMode(720, 720, { resizable = true, minwidth = 360, minheight = 360 });
-
     for key, value in pairs(states) do
         value:load();
     end
